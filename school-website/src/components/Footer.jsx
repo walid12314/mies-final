@@ -126,6 +126,15 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-24 border-t border-white/10 pt-6 text-[11px] text-white/60">
           © {new Date().getFullYear()} MIES Mardan. All Rights Reserved.
+          Developed By{" "}
+          <a
+            href="https://aisystems.pk/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-colors hover:text-yellow-700"
+          >
+            aisystems.pk
+          </a>
         </div>
       </div>
     </footer>
