@@ -1,25 +1,39 @@
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
+import { FaFacebookF, FaYoutube } from "react-icons/fa";
+import { FaTiktok } from "react-icons/fa6";
 
 const navColumns = [
   [
-    { label: 'Home', href: '/' },
-    { label: 'About Us', href: '/about' },
-    { label: 'Academics', href: '/academics' },
-    { label: 'Admissions', href: '/admissions' },
+    { label: "Home", href: "/" },
+    { label: "About Us", href: "/about" },
+    { label: "Academics", href: "/academics" },
+    { label: "Admissions", href: "/admissions" },
   ],
   [
-    { label: 'Campus Life', href: '/campus-life' },
-    { label: 'Gallery', href: '/#life-at-school' },
-    { label: 'News & Events', href: '/news-events' },
-    { label: 'Contact', href: '/contact' },
+    { label: "Campus Life", href: "/campus-life" },
+    { label: "Gallery", href: "/#life-at-school" },
+    { label: "News & Events", href: "/news-events" },
+    { label: "Contact", href: "/contact" },
   ],
-]
+];
 
 const socials = [
-  { label: 'Facebook', short: 'f', href: '#' },
-  { label: 'Instagram', short: 'Ig', href: '#' },
-  { label: 'YouTube', short: 'Yt', href: '#' },
-]
+  {
+    label: "Facebook",
+    Icon: FaFacebookF,
+    href: "https://www.facebook.com/joinmies",
+  },
+  {
+    label: "TikTok",
+    Icon: FaTiktok,
+    href: "https://www.tiktok.com/@mies_school",
+  },
+  {
+    label: "YouTube",
+    Icon: FaYoutube,
+    href: "https://www.youtube.com/@miesschoolmardan",
+  },
+];
 
 export default function Footer() {
   return (
@@ -70,12 +84,12 @@ export default function Footer() {
             </h3>
             <div className="mt-4 space-y-3 text-[12px] leading-[1.6] text-white/80">
               <p>
-                [School Address], Mardan,
+                Bagh-e-Irum Road, Mardan,
                 <br />
                 Khyber Pakhtunkhwa, Pakistan
               </p>
-              <p>+92 [000] [0000000]</p>
-              <p>info@[schoolname].edu.pk</p>
+              <p>+(0937) 866646</p>
+              {/* Add the official school email here when available. */}
             </div>
           </div>
 
@@ -85,14 +99,17 @@ export default function Footer() {
               Follow Us
             </h3>
             <div className="mt-4 flex items-center gap-3">
-              {socials.map((s) => (
+              {socials.map(({ label, Icon, href }) => (
                 <a
-                  key={s.label}
-                  href={s.href}
-                  aria-label={s.label}
-                  className="flex h-[29px] w-[29px] items-center justify-center rounded-full border border-white/40 text-[10px] font-bold text-white transition-colors hover:bg-white hover:text-[#0f0e45]"
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit MIES Mardan on ${label}`}
+                  title={label}
+                  className="flex h-[29px] w-[29px] items-center justify-center rounded-full border border-white/40 text-white transition-colors hover:bg-white hover:text-[#0f0e45] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f5b800]"
                 >
-                  {s.short}
+                  <Icon size={15} aria-hidden="true" />
                 </a>
               ))}
             </div>
@@ -108,9 +125,9 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-24 border-t border-white/10 pt-6 text-[11px] text-white/60">
-          © 2026 [School Name]. All Rights Reserved.
+          © {new Date().getFullYear()} MIES Mardan. All Rights Reserved.
         </div>
       </div>
     </footer>
-  )
+  );
 }
